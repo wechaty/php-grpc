@@ -41,7 +41,8 @@ require dirname(__FILE__) . '/vendor/autoload.php';
 $client = new \Wechaty\PuppetClient("localhost", [
     'credentials' => Grpc\ChannelCredentials::createInsecure()
 ]);
-$client->Version(null);
+$request = new \Wechaty\Puppet\VersionRequest();
+$client->Version($request);
 ```
 
 ## Author
