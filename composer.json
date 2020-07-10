@@ -1,5 +1,5 @@
 {
-  "name": "wechaty/wechaty-php-grpc",
+  "name": "wechaty/php-grpc",
   "type": "library",
   "description": "PHP Wechaty is a Conversational AI RPA SDK for Chatbot written in PHP.",
   "keywords": [
