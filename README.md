@@ -42,7 +42,8 @@ $client = new \Wechaty\PuppetClient("localhost", [
     'credentials' => Grpc\ChannelCredentials::createInsecure()
 ]);
 $request = new \Wechaty\Puppet\VersionRequest();
-$client->Version($request);
+list($response, $status) = $client->Version($request)->wait();;
+echo sprintf("code: %s, msg: %s \n", $status->code, $status->details);
 ```
 
 ## Author
