@@ -30,12 +30,14 @@ sudo yum install php72-php-pecl-protobuf
 
 ```
 composer config repo.packagist composer https://mirrors.aliyun.com/composer/
-composer install
+composer require wechaty/php-grpc
 ```
 
 ### php
 
 ```php
+require dirname(__FILE__) . '/vendor/autoload.php';
+
 $client = new \Wechaty\PuppetClient("localhost", array());
 $client->Version(null);
 ```
