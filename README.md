@@ -38,7 +38,9 @@ composer require wechaty/php-grpc
 ```php
 require dirname(__FILE__) . '/vendor/autoload.php';
 
-$client = new \Wechaty\PuppetClient("localhost", array());
+$client = new \Wechaty\PuppetClient("localhost", [
+    'credentials' => Grpc\ChannelCredentials::createInsecure()
+]);
 $client->Version(null);
 ```
 
