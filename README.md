@@ -12,6 +12,13 @@ This repo was generated via DevOps from [@chatie/grpc](https://github.com/chatie
 
 **github.com/wechaty/php-grpc**
 
+### pecl安装
+
+```shell script
+pecl install grpc
+pecl install protobuf
+```
+
 ```php
 $client = new \Wechaty\PuppetClient("localhost", array());
 $client->Version(null);
