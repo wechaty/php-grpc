@@ -1,0 +1,50 @@
+{
+  "name": "wechaty/php-grpc",
+  "type": "library",
+  "description": "PHP Wechaty is a Conversational AI RPA SDK for Chatbot written in PHP.",
+  "keywords": [
+    "package",
+    "dependency",
+    "autoload"
+  ],
+  "homepage": "https://github.com/wechaty/php-grpc",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Chunsheng Zhang",
+      "email": "zhangchunsheng423@gmail.com",
+      "homepage": "https://www.luomor.com/"
+    }
+  ],
+  "require": {
+    "php": "^7.0 || ^8.0",
+    "grpc/grpc": "^v1.3.0",
+    "google/protobuf": "^v3.3.0"
+  },
+  "require-dev": {
+
+  },
+  "config": {
+
+  },
+  "extra": {
+
+  },
+  "autoload": {
+    "psr-4": {
+      "GPBMetadata\\": "wechaty/GPBMetadata/",
+      "Wechaty\\": "wechaty/Wechaty/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+
+  },
+  "support": {
+    "issues": "https://github.com/wechaty/php-grpc/issues"
+  }
+}
