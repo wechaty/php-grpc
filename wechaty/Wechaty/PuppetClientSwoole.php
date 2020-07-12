@@ -76,7 +76,7 @@ class PuppetClientSwoole extends \Wechaty\Swoole\BaseStub {
      * @param array $options call options
      */
     public function Ding($metadata = [], $options = []) {
-        return $this->_bidiRequest('/wechaty.Puppet/Ding',
+        return $this->_clientStreamRequest('/wechaty.Puppet/Ding',
         ['\Wechaty\Puppet\DingResponse', 'decode'],
         $metadata, $options);
     }
