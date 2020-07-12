@@ -40,7 +40,7 @@ class GreeterClient extends \Wechaty\Swoole\BaseStub {
      */
     public function SayHello(\Wechaty\Helloworld\HelloRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/wechaty.helloworld.Greeter/SayHello',
+        return $this->_simpleRequest('/helloworld.Greeter/SayHello',
         $argument,
         ['\Wechaty\Helloworld\HelloReply', 'decode'],
         $metadata, $options);
