@@ -15,6 +15,23 @@ use Wechaty\Swoole\Request;
 define('GRPC_DEFAULT_TIMEOUT', 1);
 define('GRPC_ERROR_NO_RESPONSE', 'no data');
 
+Coroutine::create(function () {
+    $client = new \Wechaty\PuppetClientStream("localhost:8788", [
+        'credentials' => Grpc\ChannelCredentials::createInsecure()
+    ]);
+    $request = new \Wechaty\Puppet\DingRequest();
+
+    $request->setData("hello1");
+    $client->DingSimple($request);
+    $call = $client->Ding();//Grpc\BidiStreamingCall
+    $request->setData("hello2");
+    $call->write($request);
+    $call->writesDone();
+
+    $ret = $call->read();//Wechaty\Puppet\DingResponse
+    print_r($ret->serializeToString());
+});
+
 // The Watcher
 // E0712 17:26:09.958493298    6736 http_server_filter.cc:300]  GET request without QUERY
 Coroutine::create(function () {
@@ -26,19 +43,6 @@ Coroutine::create(function () {
 
     $ret = $watchClient->DingSimple($request);
     print_r($ret);
-
-    /*$client = new \Wechaty\PuppetClientStream("localhost:8788", [
-        'credentials' => Grpc\ChannelCredentials::createInsecure()
-    ]);
-    $request->setData("hello1");
-    $client->DingSimple($request);
-    $call = $client->Ding();//Grpc\BidiStreamingCall
-    $request->setData("hello2");
-    $call->write($request);
-    $call->writesDone();
-
-    $ret = $call->read();//Wechaty\Puppet\DingResponse
-    print_r($ret->serializeToString());*/
 
     $swooleRequest = new Request;
     $swooleRequest->method = 'POST';
