@@ -21,7 +21,7 @@ namespace Wechaty\Helloworld;
 /**
  * The greeting service definition.
  */
-class GreeterClient extends \Wechaty\Swoole\BaseStub {
+class GreeterClient extends \Grpc\BaseStub {
 
     /**
      * @param string $hostname hostname
