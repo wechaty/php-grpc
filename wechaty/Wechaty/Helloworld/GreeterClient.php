@@ -28,7 +28,7 @@ class GreeterClient extends \Wechaty\Swoole\BaseStub {
      * @param array $opts channel options
      * @param \Grpc\Channel $channel (optional) re-use channel object
      */
-    public function __construct($hostname, $opts) {
+    public function __construct($hostname, $opts = []) {
         parent::__construct($hostname, $opts);
     }
 
