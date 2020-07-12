@@ -290,7 +290,7 @@ class Client
             $request->data = $data;
         }
         $request->pipeline = true;
-        $use_pipeline_read = false;
+        //$use_pipeline_read = false;
         if ($use_pipeline_read) {
             if (SWOOLE_VERSION_ID < 40503) {
                 throw new InvalidArgumentException('Require Swoole version >= 4.5.3');
