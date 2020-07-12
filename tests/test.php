@@ -40,6 +40,16 @@ Swoole\Coroutine::create(function () use ($name) {
     ]);
     $request = new Wechaty\Helloworld\HelloRequest();
     $request->setName($name);
+    [$reply, $status] = $greeterClient->SayHello($request)->wait();
+    $message = $reply->getMessage();
+    echo "{$message}\n";
+    $greeterClient->close();
+});
+
+Swoole\Coroutine::create(function () use ($name) {
+    $greeterClient = new \Wechaty\Helloworld\GreeterClientSwoole('127.0.0.1:50051');
+    $request = new Wechaty\Helloworld\HelloRequest();
+    $request->setName($name);
     [$reply] = $greeterClient->SayHello($request);
     $message = $reply->getMessage();
     echo "{$message}\n";
