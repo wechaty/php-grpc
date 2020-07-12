@@ -39,7 +39,7 @@ class GreeterClient extends \Wechaty\Swoole\BaseStub {
      * @param array $options call options
      * @return \Helloworld\HelloReply[]|\Grpc\StringifyAble[]
      */
-    public function SayHello(\Helloworld\HelloRequest $argument,
+    public function SayHello(\Wechaty\Helloworld\HelloRequest $argument,
       $metadata = [], $options = []) {
         return $this->_simpleRequest('/helloworld.Greeter/SayHello',
         $argument,
