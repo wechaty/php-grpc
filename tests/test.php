@@ -22,6 +22,8 @@ Coroutine::create(function () {
     $request = new \Wechaty\Puppet\DingRequest();
     $request->setData("hello");
 
+    $watchClient->DingSimple($request);
+
     $client = new \Wechaty\PuppetClientStream("localhost:8788", [
         'credentials' => Grpc\ChannelCredentials::createInsecure()
     ]);
