@@ -52,13 +52,13 @@ class VirtualClient
     public static function numStats(): array
     {
         // numStats static method body hook
-        return \Grpc\Client::numStats();
+        return \Wechaty\Swoole\Client::numStats();
     }
     
     public static function debug(bool $enable = true): void
     {
         // debug static method body hook
-        \Grpc\Client::debug($enable);
+        \Wechaty\Swoole\Client::debug($enable);
     }
     
     public function __get(string $name)
@@ -115,7 +115,7 @@ class VirtualClient
         return $this->client->openStream($path, $data, $method, $use_pipeline_read);
     }
     
-    public function send(\Grpc\Request $request): int
+    public function send(Wechaty\Swoole\Request $request): int
     {
         // send non-static method body hook
         return $this->client->send($request);
