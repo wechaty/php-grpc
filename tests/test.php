@@ -45,7 +45,7 @@ Coroutine::create(function () {
     $swooleRequest->path = "/wechaty.Puppet/Ding";
     $swooleRequest->data = Parser::serializeMessage($request);
     $request->setData("hello3");
-    $watchCall->send($request);
+    //$watchCall->send($request);
     _retry:
     $watchCall->push($request);
     /**@var $reply \Wechaty\Puppet\DingResponse */
