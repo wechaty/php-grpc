@@ -25,6 +25,7 @@ Coroutine::create(function () {
     $watchCall->push($request);
     /**@var $reply \Wechaty\Puppet\DingResponse */
     while (true) {
+        echo "1";
         [$reply, $status] = $watchCall->recv();
         print_r($reply);
         print_r($status);
