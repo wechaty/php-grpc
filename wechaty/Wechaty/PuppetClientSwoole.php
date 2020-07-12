@@ -17,7 +17,7 @@ namespace Wechaty;
 
 /**
  */
-class PuppetClientSwoole extends \Wechaty\Swoole\BaseStub {
+class PuppetClientSwoole extends \Grpc\BaseStub {
 
     /**
      * @param string $hostname hostname
