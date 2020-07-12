@@ -13,6 +13,7 @@ use Swoole\Coroutine;
 define('GRPC_DEFAULT_TIMEOUT', 10);
 
 // The Watcher
+// E0712 17:26:09.958493298    6736 http_server_filter.cc:300]  GET request without QUERY
 Coroutine::create(function () {
     $watchClient = new \Wechaty\PuppetClientSwoole("localhost:8788");
 
@@ -22,7 +23,7 @@ Coroutine::create(function () {
 
     _retry:
     $watchCall->push($request);
-    /**@var $reply Etcdserverpb\WatchResponse */
+    /**@var $reply \Wechaty\Puppet\DingResponse */
     while (true) {
         [$reply, $status] = $watchCall->recv();
         print_r($reply);
