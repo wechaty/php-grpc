@@ -16,7 +16,7 @@ define('GRPC_DEFAULT_TIMEOUT', 1);
 define('GRPC_ERROR_NO_RESPONSE', 'no data');
 
 Coroutine::create(function () {
-    /*$client = new \Wechaty\PuppetClientStream("localhost:8788", [
+    $client = new \Wechaty\PuppetClientStream("localhost:8788", [
         'credentials' => Grpc\ChannelCredentials::createInsecure()
     ]);
     $request = new \Wechaty\Puppet\DingRequest();
@@ -29,7 +29,7 @@ Coroutine::create(function () {
     $call->writesDone();
 
     $ret = $call->read();//Wechaty\Puppet\DingResponse
-    print_r($ret->serializeToString());*/
+    print_r($ret->serializeToString());
 });
 
 $name = !empty($argv[1]) ? $argv[1] : 'Swoole';
