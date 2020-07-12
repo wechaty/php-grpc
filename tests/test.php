@@ -10,7 +10,7 @@ require dirname(__FILE__) . '/vendor/autoload.php';
 
 use Swoole\Coroutine;
 
-define('GRPC_DEFAULT_TIMEOUT', 10);
+define('GRPC_DEFAULT_TIMEOUT', 1);
 define('GRPC_ERROR_NO_RESPONSE', 'no data');
 
 // The Watcher
@@ -22,7 +22,8 @@ Coroutine::create(function () {
     $request = new \Wechaty\Puppet\DingRequest();
     $request->setData("hello");
 
-    $watchClient->DingSimple($request);
+    $ret = $watchClient->DingSimple($request);
+    print_r($ret);
 
     $client = new \Wechaty\PuppetClientStream("localhost:8788", [
         'credentials' => Grpc\ChannelCredentials::createInsecure()
