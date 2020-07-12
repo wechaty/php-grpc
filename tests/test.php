@@ -11,6 +11,7 @@ require dirname(__FILE__) . '/vendor/autoload.php';
 use Swoole\Coroutine;
 
 define('GRPC_DEFAULT_TIMEOUT', 10);
+define('GRPC_ERROR_NO_RESPONSE', 'no data');
 
 // The Watcher
 // E0712 17:26:09.958493298    6736 http_server_filter.cc:300]  GET request without QUERY
