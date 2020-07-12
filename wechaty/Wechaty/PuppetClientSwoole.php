@@ -82,6 +82,19 @@ class PuppetClientSwoole extends \Wechaty\Swoole\BaseStub {
     }
 
     /**
+     * @param \Wechaty\Puppet\DingRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function DingSimple(\Wechaty\Puppet\DingRequest $argument,
+                               $metadata = [], $options = []) {
+        return $this->_simpleRequest('/wechaty.Puppet/Ding',
+            $argument,
+            ['\Wechaty\Puppet\DingResponse', 'decode'],
+            $metadata, $options);
+    }
+
+    /**
      * @param \Wechaty\Puppet\VersionRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options

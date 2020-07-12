@@ -22,6 +22,8 @@ Coroutine::create(function () {
     $request = new \Wechaty\Puppet\DingRequest();
     $request->setData("hello");
 
+    $watchClient->DingSimple($request);
+
     _retry:
     $watchCall->push($request);
     /**@var $reply \Wechaty\Puppet\DingResponse */
