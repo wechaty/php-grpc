@@ -37,7 +37,7 @@ class StreamingCall extends BaseCall
     public function push($message): bool
     {
         if (!$this->streamId) {
-            $this->streamId = $this->client->openStream($this->method, null, '/wechaty', true);
+            $this->streamId = $this->client->openStream($this->method, null, '', true);
         }
         return $this->client->write($this->streamId, Parser::serializeMessage($message), false);
     }
