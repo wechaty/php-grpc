@@ -28,22 +28,21 @@ class GreeterClient extends \Wechaty\Swoole\BaseStub {
      * @param array $opts channel options
      * @param \Grpc\Channel $channel (optional) re-use channel object
      */
-    public function __construct($hostname, $opts = []) {
+    public function __construct($hostname, $opts) {
         parent::__construct($hostname, $opts);
     }
 
     /**
      * Sends a greeting
-     * @param \Helloworld\HelloRequest $argument input argument
+     * @param \Wechaty\Helloworld\HelloRequest $argument input argument
      * @param array $metadata metadata
      * @param array $options call options
-     * @return \Helloworld\HelloReply[]|\Grpc\StringifyAble[]
      */
     public function SayHello(\Wechaty\Helloworld\HelloRequest $argument,
       $metadata = [], $options = []) {
-        return $this->_simpleRequest('/helloworld.Greeter/SayHello',
+        return $this->_simpleRequest('/wechaty.helloworld.Greeter/SayHello',
         $argument,
-        ['\Helloworld\HelloReply', 'decode'],
+        ['\Wechaty\Helloworld\HelloReply', 'decode'],
         $metadata, $options);
     }
 
