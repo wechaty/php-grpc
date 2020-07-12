@@ -46,7 +46,8 @@ class Parser
             /** @noinspection PhpUndefinedMethodInspection */
             $data = $data->serialize();
         }
-        return self::pack($data);
+        //return self::pack($data);
+        return $data;
     }
 
     public static function deserializeMessage($deserialize, string $value)
@@ -54,7 +55,7 @@ class Parser
         if (empty($value)) {
             return null;
         } else {
-            $value = self::unpack($value);
+            //$value = self::unpack($value);
         }
         if (is_array($deserialize)) {
             [$className, $deserializeFunc] = $deserialize;
