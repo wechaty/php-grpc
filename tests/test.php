@@ -32,6 +32,18 @@ Coroutine::create(function () {
     print_r($ret->serializeToString());*/
 });
 
+$name = !empty($argv[1]) ? $argv[1] : 'Swoole';
+
+Swoole\Coroutine::create(function () use ($name) {
+    $greeterClient = new \Wechaty\Helloworld\GreeterClient('127.0.0.1:50051');
+    $request = new Wechaty\Helloworld\HelloRequest();
+    $request->setName($name);
+    [$reply] = $greeterClient->SayHello($request);
+    $message = $reply->getMessage();
+    echo "{$message}\n";
+    $greeterClient->close();
+});
+
 // The Watcher
 // E0712 17:26:09.958493298    6736 http_server_filter.cc:300]  GET request without QUERY
 Coroutine::create(function () {
