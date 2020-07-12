@@ -35,7 +35,9 @@ Coroutine::create(function () {
 $name = !empty($argv[1]) ? $argv[1] : 'Swoole';
 
 Swoole\Coroutine::create(function () use ($name) {
-    $greeterClient = new \Wechaty\Helloworld\GreeterClient('127.0.0.1:50051');
+    $greeterClient = new \Wechaty\Helloworld\GreeterClient('127.0.0.1:50051', [
+        'credentials' => Grpc\ChannelCredentials::createInsecure()
+    ]);
     $request = new Wechaty\Helloworld\HelloRequest();
     $request->setName($name);
     [$reply] = $greeterClient->SayHello($request);
