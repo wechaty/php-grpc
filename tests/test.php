@@ -9,6 +9,8 @@
 require dirname(__FILE__) . '/vendor/autoload.php';
 
 use Swoole\Coroutine;
+use Wechaty\Swoole\Parser;
+use Wechaty\Swoole\Request;
 
 define('GRPC_DEFAULT_TIMEOUT', 1);
 define('GRPC_ERROR_NO_RESPONSE', 'no data');
@@ -36,8 +38,12 @@ Coroutine::create(function () {
     $ret = $call->read();//Wechaty\Puppet\DingResponse
     print_r($ret->serializeToString());
 
+    $swooleRequest = new Request;
+    $swooleRequest->method = 'POST';
+    $swooleRequest->path = "/wechaty.Puppet/Ding";
+    $swooleRequest->data = Parser::serializeMessage($request);
     _retry:
-    $watchCall->push($request);
+    $watchCall->push($swooleRequest);
     /**@var $reply \Wechaty\Puppet\DingResponse */
     while (true) {
         echo "1";
