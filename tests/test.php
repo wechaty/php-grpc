@@ -27,7 +27,7 @@ Coroutine::create(function () {
     $ret = $watchClient->DingSimple($request);
     print_r($ret);
 
-    $client = new \Wechaty\PuppetClientStream("localhost:8788", [
+    /*$client = new \Wechaty\PuppetClientStream("localhost:8788", [
         'credentials' => Grpc\ChannelCredentials::createInsecure()
     ]);
     $request->setData("hello1");
@@ -38,7 +38,7 @@ Coroutine::create(function () {
     $call->writesDone();
 
     $ret = $call->read();//Wechaty\Puppet\DingResponse
-    print_r($ret->serializeToString());
+    print_r($ret->serializeToString());*/
 
     $swooleRequest = new Request;
     $swooleRequest->method = 'POST';
