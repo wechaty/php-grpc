@@ -30,6 +30,9 @@ Coroutine::create(function () {
     $call->write($request);
     $call->writesDone();
 
+    $ret = $call->read();//Wechaty\Puppet\DingResponse
+    print_r($ret->serializeToString());
+
     _retry:
     $watchCall->push($request);
     /**@var $reply \Wechaty\Puppet\DingResponse */
