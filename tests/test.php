@@ -22,6 +22,7 @@ Coroutine::create(function () {
     $request = new \Wechaty\Puppet\DingRequest();
     $request->setData("hello");
 
+    $watchClient = new \Wechaty\PuppetClientStream("localhost:8788", []);
     $watchClient->DingSimple($request);
 
     _retry:
