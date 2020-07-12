@@ -115,7 +115,7 @@ class VirtualClient
         return $this->client->openStream($path, $data, $method, $use_pipeline_read);
     }
     
-    public function send(Wechaty\Swoole\Request $request): int
+    public function send(\Wechaty\Swoole\Request $request): int
     {
         // send non-static method body hook
         return $this->client->send($request);
