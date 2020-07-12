@@ -22,9 +22,8 @@ class PuppetClientSwoole extends \Wechaty\Puppet\Swoole\BaseStub {
     /**
      * @param string $hostname hostname
      * @param array $opts channel options
-     * @param \Grpc\Channel $channel (optional) re-use channel object
      */
-    public function __construct($hostname, $opts, $channel = null) {
+    public function __construct($hostname, $opts = []) {
         parent::__construct($hostname, $opts);
     }
 
@@ -76,10 +75,8 @@ class PuppetClientSwoole extends \Wechaty\Puppet\Swoole\BaseStub {
      * @param array $metadata metadata
      * @param array $options call options
      */
-    public function Ding(\Wechaty\Puppet\DingRequest $argument,
-      $metadata = [], $options = []) {
-        return $this->_simpleRequest('/wechaty.Puppet/Ding',
-        $argument,
+    public function Ding($metadata = [], $options = []) {
+        return $this->_bidiRequest('/wechaty.Puppet/Ding',
         ['\Wechaty\Puppet\DingResponse', 'decode'],
         $metadata, $options);
     }
