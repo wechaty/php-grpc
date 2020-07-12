@@ -15,7 +15,7 @@
   +----------------------------------------------------------------------+
 */
 
-namespace Wechaty\Puppet\Swoole;
+namespace Wechaty\Swoole;
 
 use Google\Protobuf\Internal\Message;
 

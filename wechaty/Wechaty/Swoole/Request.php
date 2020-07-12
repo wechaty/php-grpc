@@ -4,7 +4,7 @@
  * Date: 2020/5/29 5:21 下午
  */
 
-namespace Wechaty\Puppet\Swoole;
+namespace Wechaty\Swoole;
 
 class Request extends \Swoole\Http2\Request
 {

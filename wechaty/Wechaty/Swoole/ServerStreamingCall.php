@@ -15,7 +15,7 @@
   +----------------------------------------------------------------------+
 */
 
-namespace Wechaty\Puppet\Swoole;
+namespace Wechaty\Swoole;
 
 use BadMethodCallException;
 

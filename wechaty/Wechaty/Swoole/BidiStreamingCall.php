@@ -15,7 +15,7 @@
   +----------------------------------------------------------------------+
 */
 
-namespace Wechaty\Puppet\Swoole;
+namespace Wechaty\Swoole;
 
 /**
  * Represents an active call that allows for sending and recieving messages
