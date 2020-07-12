@@ -28,6 +28,7 @@ Coroutine::create(function () {
     while (true) {
         echo "1";
         [$reply, $status] = $watchCall->recv();
+        echo "t";
         print_r($reply);
         print_r($status);
         if ($status === 0) { // success
