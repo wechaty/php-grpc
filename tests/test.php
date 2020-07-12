@@ -10,6 +10,8 @@ require dirname(__FILE__) . '/vendor/autoload.php';
 
 use Swoole\Coroutine;
 
+define('GRPC_DEFAULT_TIMEOUT', 10);
+
 // The Watcher
 Coroutine::create(function () {
     $watchClient = new \Wechaty\PuppetClientSwoole("localhost:8788");
