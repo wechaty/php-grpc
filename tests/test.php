@@ -26,7 +26,7 @@ Coroutine::create(function () {
         'credentials' => Grpc\ChannelCredentials::createInsecure()
     ]);
     $watchClient->DingSimple($request);
-    $call = $watchClient->Ding($request);//Grpc\BidiStreamingCall
+    $call = $watchClient->Ding();//Grpc\BidiStreamingCall
     $call->write($request);
     $call->writesDone();
 

@@ -76,8 +76,7 @@ class PuppetClientStream extends \Grpc\BaseStub {
      * @param array $metadata metadata
      * @param array $options call options
      */
-    public function Ding(\Wechaty\Puppet\DingRequest $argument,
-      $metadata = [], $options = []) {
+    public function Ding($metadata = [], $options = []) {
         return $this->_bidiRequest('/wechaty.Puppet/Ding',
         ['\Wechaty\Puppet\DingResponse', 'decode'],
         $metadata, $options);
