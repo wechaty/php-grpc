@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * The response message containing the greetings
  *
- * Generated from protobuf message <code>helloworld.HelloReply</code>
+ * Generated from protobuf message <code>wechaty.helloworld.HelloReply</code>
  */
 class HelloReply extends \Google\Protobuf\Internal\Message
 {

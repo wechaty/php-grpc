@@ -11,7 +11,7 @@ use Google\Protobuf\Internal\GPBUtil;
 /**
  * The request message containing the user's name.
  *
- * Generated from protobuf message <code>helloworld.HelloRequest</code>
+ * Generated from protobuf message <code>wechaty.helloworld.HelloRequest</code>
  */
 class HelloRequest extends \Google\Protobuf\Internal\Message
 {
