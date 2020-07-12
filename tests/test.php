@@ -22,11 +22,11 @@ Coroutine::create(function () {
     $request = new \Wechaty\Puppet\DingRequest();
     $request->setData("hello");
 
-    $watchClient = new \Wechaty\PuppetClientStream("localhost:8788", [
+    $client = new \Wechaty\PuppetClientStream("localhost:8788", [
         'credentials' => Grpc\ChannelCredentials::createInsecure()
     ]);
-    $watchClient->DingSimple($request);
-    $call = $watchClient->Ding();//Grpc\BidiStreamingCall
+    $client->DingSimple($request);
+    $call = $client->Ding();//Grpc\BidiStreamingCall
     $call->write($request);
     $call->writesDone();
 
