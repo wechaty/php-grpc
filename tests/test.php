@@ -59,7 +59,7 @@ Swoole\Coroutine::create(function () use ($name) {
 // The Watcher
 // E0712 17:26:09.958493298    6736 http_server_filter.cc:300]  GET request without QUERY
 Coroutine::create(function () {
-    $watchClient = new \Wechaty\PuppetClientSwoole("localhost:8788");
+    $watchClient = new \Wechaty\PuppetClientSwoole("172.17.205.29:8788");
 
     $watchCall = $watchClient->Ding();
     $request = new \Wechaty\Puppet\DingRequest();
