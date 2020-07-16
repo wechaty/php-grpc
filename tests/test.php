@@ -32,7 +32,7 @@ Coroutine::create(function () {
     print_r($ret->serializeToString());
 
     $request = new \Wechaty\Puppet\StartRequest();
-    $client->Start($request);
+    $client->Start();
 
     $request = new \Wechaty\Puppet\EventRequest();
     $call = $client->Event($request);
