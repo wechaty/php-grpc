@@ -65,7 +65,11 @@ Coroutine::create(function () {
     $ret = $call->responses();//Generator Object
     while($ret->valid()) {
         print_r($ret->key());//0 1 2
-        print_r($ret->current());//Wechaty\Puppet\EventResponse Object
+        $response = $ret->current();
+        print_r($response);//Wechaty\Puppet\EventResponse Object
+        print_r($response->getType());
+        print_r($response->getPayload());
+        $ret->send("test");
         $ret->next();
     }
     print_r($ret->getReturn());
