@@ -64,6 +64,8 @@ Coroutine::create(function () {
     $call = $client->Event($request);
     $ret = $call->responses();//Generator Object
     while($ret->valid()) {
+        print_r($ret->key());//0 1 2
+        print_r($ret->current());
         $ret->next();
     }
     print_r($ret->getReturn());
