@@ -19,13 +19,13 @@ Coroutine::create(function () {
     $client = new \Wechaty\PuppetClientStream("localhost:8788", [
         'credentials' => Grpc\ChannelCredentials::createInsecure()
     ]);
-    $request = new \Wechaty\Puppet\DingRequest();
+    $dingRequest = new \Wechaty\Puppet\DingRequest();
 
-    $request->setData("hello1");
-    $client->DingSimple($request);
+    $dingRequest->setData("hello1");
+    $client->DingSimple($dingRequest);
     $call = $client->Ding();//Grpc\BidiStreamingCall
-    $request->setData("hello2");
-    $call->write($request);
+    $dingRequest->setData("hello2");
+    $call->write($dingRequest);
     $call->writesDone();
 
     $ret = $call->read();//Wechaty\Puppet\DingResponse
@@ -71,7 +71,8 @@ Coroutine::create(function () {
         print_r($response->getPayload());
         //{"qrcode":"https://login.weixin.qq.com/l/IaysbZa04Q==","status":5}
         //{"data":"heartbeat@browserbridge ding","timeout":60000}
-        $ret->send("test");
+        //$client->DingSimple($dingRequest);
+        //3{"data":"dong"}
         $ret->next();
     }
     print_r($ret->getReturn());
