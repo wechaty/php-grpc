@@ -32,7 +32,12 @@ Coroutine::create(function () {
     print_r($ret->serializeToString());
 
     $request = new \Wechaty\Puppet\StartRequest();
-    $client->Start();
+    $call = $client->Start();
+    $call->write($request);
+    $call->writesDone();
+
+    $ret = $call->read();//Wechaty\Puppet\StartResponse
+    print_r($ret->serializeToString());
     /*
      * 03:12:22 VERB EventStreamManager start(stream)
 03:12:22 VERB EventStreamManager connectPuppetEventToStreamingCall() for Puppet#0<PuppetPuppeteer>(67ac832ecc2d5fcda97c7e63595060cb)
@@ -57,6 +62,11 @@ Coroutine::create(function () {
 
     $request = new \Wechaty\Puppet\EventRequest();
     $call = $client->Event($request);
+    $ret = $call->responses();//Generator Object
+    while($ret->valid()) {
+        $ret->next();
+    }
+    print_r($ret->getReturn());
 });
 
 $name = !empty($argv[1]) ? $argv[1] : 'Swoole';
