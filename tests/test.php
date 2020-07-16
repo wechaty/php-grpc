@@ -30,6 +30,12 @@ Coroutine::create(function () {
 
     $ret = $call->read();//Wechaty\Puppet\DingResponse
     print_r($ret->serializeToString());
+
+    $request = new \Wechaty\Puppet\StartRequest();
+    $client->Start($request);
+
+    $request = new \Wechaty\Puppet\EventRequest();
+    $call = $client->Event($request);
 });
 
 $name = !empty($argv[1]) ? $argv[1] : 'Swoole';

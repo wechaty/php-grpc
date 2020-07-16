@@ -37,12 +37,27 @@ class PuppetClientStream extends \Grpc\BaseStub {
      * @param array $metadata metadata
      * @param array $options call options
      */
-    public function Start(\Wechaty\Puppet\StartRequest $argument,
-      $metadata = [], $options = []) {
-        return $this->_simpleRequest('/wechaty.Puppet/Start',
-        $argument,
+    public function Start($metadata = [], $options = []) {
+        return $this->_bidiRequest('/wechaty.Puppet/Start',
         ['\Wechaty\Puppet\StartResponse', 'decode'],
         $metadata, $options);
+    }
+
+    /**
+     * *
+     *
+     * Base
+     *
+     * @param \Wechaty\Puppet\StartRequest $argument input argument
+     * @param array $metadata metadata
+     * @param array $options call options
+     */
+    public function StartSimple(\Wechaty\Puppet\StartRequest $argument,
+                                $metadata = [], $options = []) {
+        return $this->_simpleRequest('/wechaty.Puppet/Start',
+            $argument,
+            ['\Wechaty\Puppet\StartResponse', 'decode'],
+            $metadata, $options);
     }
 
     /**
