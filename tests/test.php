@@ -67,8 +67,10 @@ Coroutine::create(function () {
         print_r($ret->key());//0 1 2
         $response = $ret->current();
         print_r($response);//Wechaty\Puppet\EventResponse Object
-        print_r($response->getType());
+        print_r($response->getType());//2
         print_r($response->getPayload());
+        //{"qrcode":"https://login.weixin.qq.com/l/IaysbZa04Q==","status":5}
+        //{"data":"heartbeat@browserbridge ding","timeout":60000}
         $ret->send("test");
         $ret->next();
     }
